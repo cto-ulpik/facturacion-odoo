@@ -1,0 +1,19 @@
+{
+  "name": "facturacion-odoo",
+  "module": "./src/server.ts",
+  "type": "module",
+  "scripts": {
+    "start": "bun run ./src/server.ts",
+    "build": "tsc",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "devDependencies": {
+    "@types/bun": "latest"
+  },
+  "peerDependencies": {
+    "typescript": "^5.0.0"
+  },
+  "dependencies": {
+    "elysia": "^1.0.27"
+  }
+}
