@@ -2,9 +2,10 @@ import { Elysia, t } from 'elysia';
 
 const server = new Elysia();
 
-server.get('/', ({set}:any) => {
+server.get('/', ({set, body}:any) => {
+    console.log(body)
     set.status = 200;
-    return 'ok';
+    return;
 });
 
 server.listen({ port: 8080 }, () => {
