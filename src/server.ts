@@ -6,6 +6,6 @@ server.get('/', () => {
     return 'Hello World';
 });
 
-server.listen({ port: 3000 }, () => {
+server.listen({ port: 8080 }, () => {
   console.log('Server running on http://localhost:8080');
 });
