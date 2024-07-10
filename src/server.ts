@@ -3,7 +3,7 @@ import { Elysia, t } from 'elysia';
 const server = new Elysia();
 
 server.get('/', ({set}:any) => {
-    set.status(200);
+    set.status = 200;
     return 'ok';
 });
 
