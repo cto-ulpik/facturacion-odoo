@@ -1,9 +1,10 @@
 import { Elysia, t } from 'elysia';
+import createBill from './modules/billing/main';
 
 const server = new Elysia();
 
 server.post('/', ({set, body}:any) => {
-    console.log(body)
+    createBill(body);
     set.status = 200;
     return '';
 });
