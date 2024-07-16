@@ -1,4 +1,6 @@
 import { getAuthDict, type AuthDict } from "../auth/getAuth";
+import { sendEmailWhenError } from "../email/templates/sendEmailWhenError";
+import { sendEmailWhenBill } from "../email/templates/sendEmailWhenBill";
 import getData from "../roots/roots.data";
 import https from 'https';
       
@@ -35,13 +37,23 @@ export default function createBill(payload:any){
         chunks.push(chunk);
       });
     
-      res.on("end", function (chunk:any) {
+      res.on("end", async function (chunk:any) {
         var body = Buffer.concat(chunks);
+
+        if(body.toString().includes('errors')){
+          await sendEmailWhenError(data);
+          console.log(body.toString());
+          return ''
+        }
+
         console.log(body.toString());
+        await sendEmailWhenBill(data);
+        return '';
       });
-    
-      res.on("error", function (error) {
+      
+      res.on("error", async function (error) {
         console.error(error);
+        
       });
     });
   
