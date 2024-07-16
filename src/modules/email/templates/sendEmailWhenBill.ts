@@ -50,8 +50,6 @@ export async function sendEmailWhenBill(props:any){
     <p>Fecha: ${item.attributes['date_invoice']}</p>
     <h3>Detalle de la Factura</h3>
     ${htmlContent}
-
-    <p>${JSON.stringify(item.relationships['partner_id'].data.attributes)}</p>
     `
   });
 
