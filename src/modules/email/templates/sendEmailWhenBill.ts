@@ -2,11 +2,8 @@ import { sendEmail } from '../index';
 
 export async function sendEmailWhenBill(props:any){
 
-  
   const dataBill = props.map((item:any) => {
-
     let htmlContent = '<div>';
-
     item.relationships['invoice_line_ids'].data.forEach((item:any) => {
     htmlContent += `
     <style type="text/css">
