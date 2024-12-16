@@ -92,7 +92,7 @@ class Product {
     constructor(detailsProduct:any ){
         this.name = detailsProduct.name
         this.quantity = detailsProduct.quantity
-        this.priceUnit = (detailsProduct.total/1.12).toFixed(2)
+        this.priceUnit = (detailsProduct.total/1.15).toFixed(2)
         this.nameGet = detailsProduct.sku.replace('a','').replace('b','').replace('c','')
     }
 
@@ -119,7 +119,7 @@ class Product {
                      {
                         "type":"account.tax",
                         "attributes":{
-                           "name_get":"VENTAS LOCALES (EXC ACT FIJOS) GRAVADAS TARIFA 12%"
+                           "name_get":"VENTAS LOCALES (EXC ACT FIJOS) GRAVADAS TARIFA 15%"
                         }
                      }
                   ]
