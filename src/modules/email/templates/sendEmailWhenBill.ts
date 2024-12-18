@@ -1,6 +1,6 @@
 import { sendEmail } from '../index';
 
-export async function sendEmailWhenBill(props:any){
+export async function sendEmailWhenBill(props:any , withRuc : string){
 
   const dataBill = props.map((item:any) => {
     let htmlContent = '<div>';
@@ -42,9 +42,10 @@ export async function sendEmailWhenBill(props:any){
     htmlContent += '</div>';
 
     return `<p>Nombre: <h3>${item.relationships['partner_id'].data.attributes.name}</h3></p>
-    <p>Correo: ${item.relationships['partner_id'].data.attributes.email}</p>
-    <p>Cédula/RUC: ${item.relationships['partner_id'].data.attributes.identifier}</p>
-    <p>Fecha: ${item.attributes['date_invoice']}</p>
+    <p><b>Correo:</b> ${item.relationships['partner_id'].data.attributes.email}</p>
+    <p><b>Cédula/RUC:</b> ${item.relationships['partner_id'].data.attributes.identifier}</p>
+    <p><b>¿Desea con RUC?:</b> ${withRuc}</p>
+    <p><b>Fecha:</b> ${item.attributes['date_invoice']}</p>
     <h3>Detalle de la Factura</h3>
     ${htmlContent}
     `
