@@ -14,7 +14,7 @@ export default function createBill(payload:any){
     const secretKey: string = process.env.GBC_SECRET_KEY ?? '';
     const auth: AuthDict = getAuthDict(login, secretKey);
     const data = getData(auth, payload);
-    const withRuc : string = payload['meta_data'].filter((item: any)=>item.key=='is_vat_exempt')[0].value == "Si" ? 'Desea con RUC' : 'Desea sin RUC';
+    const withRuc : string = payload['meta_data'].filter((item: any)=>item.key=='is_vat_exempt')[0].value == "Sí" ? 'Si' : 'No';
 
     const postData = {
       auth: auth,
