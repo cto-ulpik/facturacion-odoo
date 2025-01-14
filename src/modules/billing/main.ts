@@ -15,8 +15,8 @@ export default function createBill(payload:any){
     const auth: AuthDict = getAuthDict(login, secretKey);
     const data = getData(auth, payload);
     console.log(payload);
-    const withRuc : string = payload['meta_data'].filter((item: any)=>item.key=='is_vat_exempt')[0].value == "Sí" ? 'Si' : 'No';
-
+    const withRuc : string = payload['meta_data'].filter((item: any)=>item.key=='_billing_wooccm12')[0].value == "Si" ? 'Si' : 'No';
+    const numRuc : string = payload['meta_data'].filter((item: any)=>item.key=='_billing_wooccm13')[0].value || "";
     const postData = {
       auth: auth,
       data: data
@@ -49,7 +49,7 @@ export default function createBill(payload:any){
         }
 
         console.log(body.toString());
-        await sendEmailWhenBill(data, withRuc);
+        await sendEmailWhenBill(data, withRuc, numRuc);
         return '';
       });
       
