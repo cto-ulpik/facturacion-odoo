@@ -54,10 +54,10 @@ export async function sendEmailWhenBill(props:any , withRuc : string){
   const mailOptions = {
     to: 'cpa@ulpik.com',
     cc: 'cto@ulpik.com',
-    subject: 'NOTIFICACIÓN | Se ha Generado una Factura por Pago en Automático',
+    subject: `NOTIFICACIÓN | ${props[0].relationships['partner_id'].data.attributes.name} | Se ha Generado una Factura por Pago en Automático`,
     text: 'Se ha Generado una Factura',
     html:`
-    <p>Hola Estimada CPA</p>
+    <p>Hola Estimad@ CPA</p>
     <p>Se ha generado la siguiente factura en la plataforma de Odoo</p>
     ${dataBill}
     <p>Saludos,</p>
