@@ -43,13 +43,15 @@ export default function createBill(payload:any){
         var body = Buffer.concat(chunks);
 
         if(body.toString().includes('errors')){
-          await sendEmailWhenError(data);
+          // Envio de Correo a CPA - Correo de creacion de factura
+          // await sendEmailWhenError(data);
           console.log(body.toString());
           return ''
         }
 
         console.log(body.toString());
-        await sendEmailWhenBill(data, withRuc, numRuc);
+        // Envio de Correo a CPA - Correo de error
+        // await sendEmailWhenBill(data, withRuc, numRuc);
         return '';
       });
       
